@@ -16,10 +16,11 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { HeaderComponent } from './header';
-import { LoginLocationComponent } from './loginLocation';
 import { LocationComponent } from 'app/admin/location';
+import { LoginComponent } from './login';
 
-import { HomeService } from './home/home.service'
+import { HomeService } from './home/home.service';
+import { LoginService } from './login/login.service';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -28,7 +29,8 @@ import '../styles/headings.css';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  HomeService
+  HomeService,
+  LoginService
 ];
 
 type StoreType = {
@@ -46,8 +48,8 @@ type StoreType = {
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    LoginLocationComponent,
-    LocationComponent
+    LocationComponent,
+    LoginComponent
   ],
   /**
    * Import Angular's modules.
