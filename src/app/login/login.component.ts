@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
     this.loginService.getUsers().subscribe(
       data => {
         this.users = data;
-        console.log("this.users ::", this.users);
       }
     );
   }
@@ -35,7 +34,18 @@ export class LoginComponent implements OnInit {
     this.loginService.getLocations().subscribe(
       data => {
         this.locations = data;
-        console.log("this.locations ::", this.locations);
+      }
+    );
+  }
+
+  public login(){
+    let postData = {
+      user_id: this.user,
+      location_id: this.location
+    }
+    this.loginService.addLocation(postData).subscribe(
+      data => {
+        console.log('Successfull Login');
       }
     );
   }
