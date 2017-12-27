@@ -7,7 +7,7 @@ import { API_BASE_URL } from "../constants/app.constants";
 export class HomeService {
   constructor(private http: Http){}  
   public getPostsData () {
-    return this.http.get(API_BASE_URL + "api/posts")
+    return this.http.get(API_BASE_URL + "users")
         .map(data => {
             return data.json();
         });
