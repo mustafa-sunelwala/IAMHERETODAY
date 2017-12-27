@@ -16,6 +16,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
+import { HeaderComponent } from './header';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -40,7 +41,8 @@ type StoreType = {
   declarations: [
     AppComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   /**
    * Import Angular's modules.
