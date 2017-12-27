@@ -1,0 +1,53 @@
+.row{
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+h1{
+	margin-top: 0;
+	margin-bottom: 20px;
+	color: #FFF;
+	text-transform: uppercase;
+	font-size: 240%;
+	font-weight: 300;
+	letter-spacing: 1px;
+	word-spacing: 3px;
+	text-align: center;
+	
+	
+}
+
+.btn{
+	background-color: #960311;
+	color: white;
+	width: 60%;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+
+.btn:link, .btn:visited {
+	display: inline-block;
+	padding: 10px 30px;
+	font-weight: 300;
+	text-decoration: none;
+	border-radius: 200px;
+	transition: background-color 0.2s, border 0.2s, color 0.2s;
+	
+}
+
+.btn:hover, .btn:active {
+	background-color: #cf6d17;
+}
+
+.label{
+	display: initial;
+    font-size: small;
+    color:#FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.form-control{
+	border-radius: 5px;
+	width: 30%;
+}

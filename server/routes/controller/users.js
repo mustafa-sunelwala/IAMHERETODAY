@@ -26,4 +26,13 @@ router.post('/addlocation',function(req,res,next){
     });
 });
 
+router.get('/users120',function(req,res,next){
+  db.users.find(function(err,users){
+       if(err){
+         res.send(err);
+       }
+       res.json(users);
+  })
+});
+
 module.exports = router;
