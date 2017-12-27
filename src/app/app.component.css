@@ -70,12 +70,6 @@ h1{
 .label{
 	display: initial;
     font-size: small;
-    color:#FFF;
     font-weight: bold;
     text-transform: uppercase;
-}
-
-.form-control{
-	border-radius: 5px;
-	width: 30%;
 }
