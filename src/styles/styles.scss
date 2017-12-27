@@ -4,6 +4,7 @@
 @import '../app/app.component.css';
 @import '../app/header/header.component.css';
 @import '../app/loginLocation/loginLocation.component.css';
+@import '../app/admin/location/location.component.css';
 
 nav {
   margin-top: 16px;
@@ -20,4 +21,6 @@ nav a {
   text-decoration: none;
   border-radius: 4px;
 }
+
+
 

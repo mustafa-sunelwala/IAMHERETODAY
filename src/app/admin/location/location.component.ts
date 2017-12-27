@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'header',
-  templateUrl: './header.component.html'
+  selector: 'location',
+  templateUrl: './location.component.html'
 })
-export class HeaderComponent implements OnInit {
+export class LocationComponent implements OnInit {
   constructor() {}
 
   public ngOnInit() {
-    console.log('hello `header` component');
+    console.log('Location Component');
   }
 }

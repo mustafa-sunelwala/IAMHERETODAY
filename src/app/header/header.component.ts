@@ -8,6 +8,6 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   public ngOnInit() {
-    console.log('hello `header` component');
+    console.log('header component');
   }
 }

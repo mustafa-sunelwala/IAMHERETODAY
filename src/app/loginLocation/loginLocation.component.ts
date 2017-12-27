@@ -16,7 +16,7 @@ export class LoginLocationComponent implements OnInit {
 
 
   public ngOnInit() {
-    console.log('Initial App State');
+    console.log('login component');
   }
 
 }

@@ -15,15 +15,14 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
-import { AboutComponent } from './about';
 import { HeaderComponent } from './header';
 import { LoginLocationComponent } from './loginLocation';
+import { LocationComponent } from 'app/admin/location';
 
 import { HomeService } from './home/home.service'
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
-import { LoginComponent } from 'app/login';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -45,10 +44,10 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
     HomeComponent,
     HeaderComponent,
-    LoginLocationComponent
+    LoginLocationComponent,
+    LocationComponent
   ],
   /**
    * Import Angular's modules.
