@@ -19,4 +19,11 @@ export class LoginService {
             return data.json();
         });
   }
+
+  public addLocation(data){
+    return this.http.post(API_BASE_URL + "addLocation", data)
+    .map(data => {
+        return data.json();
+    });
+  }
 }
