@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { AppState } from '../app.service';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'home',  // <home></home>
@@ -8,13 +7,18 @@ import { AppState } from '../app.service';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-  constructor(public appState: AppState) {}
+  constructor(public homeService: HomeService) {}
 
   public ngOnInit() {
     console.log('hello `Home` component');
+    this.getPostsData();
   }
 
-  public submitState(value: string) {
-    console.log('submitState', value);
+  public getPostsData() {
+    this.homeService.getPostsData().subscribe(
+      data => {
+        console.log("posts data ::",data);
+      }
+    );
   }
 }

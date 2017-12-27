@@ -10,9 +10,6 @@ import { AppState } from './app.service';
  */
 @Component({
   selector: 'app',
-  styleUrls: [
-    './app.component.css'
-  ],
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
