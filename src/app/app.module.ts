@@ -17,19 +17,20 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { HeaderComponent } from './header';
-import { LoginLocationComponent } from './loginLocation';
+import { LoginComponent } from './login';
 
-import { HomeService } from './home/home.service'
+import { HomeService } from './home/home.service';
+import { LoginService } from './login/login.service';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
-import { LoginComponent } from 'app/login';
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  HomeService
+  HomeService,
+  LoginService
 ];
 
 type StoreType = {
@@ -48,7 +49,7 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     HeaderComponent,
-    LoginLocationComponent
+    LoginComponent
   ],
   /**
    * Import Angular's modules.
