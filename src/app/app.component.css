@@ -70,7 +70,7 @@ h1{
 .label{
 	display: initial;
     font-size: small;
-    color:#FFF;
+    color:rgb(235, 15, 15);
     font-weight: bold;
     text-transform: uppercase;
 }
