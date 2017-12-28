@@ -41,8 +41,10 @@ h3{
 
 .select{
 	background: #fff;
-	border: 1px solid #3c3636;
-	height: 30px;
-	width: 300px;
-	margin: 5px;
+    border: 1px solid gray;
+    height: 30px;
+    width: 300px;
+    margin: 5px;
+    padding: 0 10px;
+    font-size: 12px;
 }

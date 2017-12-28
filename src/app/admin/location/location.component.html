@@ -1,25 +1,15 @@
 <div class="row login">
-        <h1>Location</h1>
-        <form >
-            <div>
-                <div style="width:35%;float: left;padding-top:10px;">
-                    <label for="locationName" class="label">Enter Location Name*</label> 
-               </div>
-               <div style="width:60%;float: left;padding-top:10px;">
-                    <input type="text" class="form-control" id="locationName" aria-describedby="locationName" placeholder="Location Name" />
-                </div>
-            </div>
-            <div style="clear: both;">
-                <div style="width:35%;float: left;padding-top:10px;">
-                    <label for="locationAddress" class="label">Enter Location Address</label>
-                </div>
-                <div style="width:60%;float: left;padding-top:10px;">
-                    <textarea class="form-control" id="locationAdd" rows="3" aria-describedby="locationAdd" placeholder="Location Address"></textarea>
-                </div>
-            </div>
-            <div style="clear:both;text-align: center;">
-                <button type="submit" class="login-btn"  style="width:200px;">Add Location</button>
-                <button type="submit" class="login-btn"  style="width:200px;">Cancel</button>
-            </div>
-        </form>
+    <h3>Location</h3>
+    <div class="login-form">
+        <div class="select-control">
+            <input type="text" class="select" id="locationName" aria-describedby="locationName" placeholder="Location Name" />
+        </div>
+        
+        <div class="select-control">
+            <textarea class="select" id="locationAdd" rows="3" aria-describedby="locationAdd" placeholder="Location Address"></textarea>
+        </div>
+        <div class="select-control">
+            <button type="submit" class="login-btn">Add Location</button>
+        </div>
+    </div>
 </div>
