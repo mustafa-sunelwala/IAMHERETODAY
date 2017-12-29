@@ -1,8 +1,9 @@
 <div class="row login">
     <h3>Login</h3>
     <div class="login-form">
+      <p class="error" *ngIf="errorMsg">{{errorMsg}}</p>  
       <div class="select-control">
-          <select class="select" [(ngModel)]="user">
+          <select class="select" [(ngModel)]="user" [disabled]="disableUserDropdown">
               <option value="">Select User</option>
               <option *ngFor="let user of users" value="{{user._id}}">{{user.name}}</option>
             </select>   

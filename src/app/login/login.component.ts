@@ -15,12 +15,21 @@ export class LoginComponent implements OnInit {
   private users: Array<any> = [];
   private location: String = '';
   private user: String = '';
+  private disableUserDropdown: Boolean = false;
+  private errorMsg: String = '';
 
   constructor(private loginService: LoginService, private router: Router){}
 
   public ngOnInit() {
     this.getUsers();
     this.getLocations();
+
+    //get existing user id from localStorage
+    let user_id = window.localStorage.getItem('user_id');
+    if(user_id){
+      this.user = user_id;
+      this.disableUserDropdown = true;
+    }
   }
 
   public getUsers() {
@@ -40,16 +49,20 @@ export class LoginComponent implements OnInit {
   }
 
   public login(){
-    let postData = {
-      user_id: this.user,
-      location_id: this.location
-    }
-
-    this.loginService.addLocation(postData).subscribe(
-      data => {
-        window.localStorage.setItem('user_id', postData.user_id + '');
-        this.router.navigate(['/dashboard']);
+    if(this.user == '' || this.location == ''){
+      this.errorMsg = "Please select required fields.";
+    }else{
+      let postData = {
+        user_id: this.user,
+        location_id: this.location
       }
-    );
+  
+      this.loginService.addLocation(postData).subscribe(
+        data => {
+          window.localStorage.setItem('user_id', postData.user_id + '');
+          this.router.navigate(['/dashboard']);
+        }
+      );
+    }
   }
 }

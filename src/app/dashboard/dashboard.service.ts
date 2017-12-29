@@ -8,7 +8,7 @@ export class DashboardService {
   constructor(private http: Http){}  
   public getUserLocations (user_id) {
     var data = { user_id: user_id }; 
-    return this.http.post(API_BASE_URL + "locations", data)
+    return this.http.post(API_BASE_URL + "loginlocations/find", data)
         .map(data => {
             return data.json();
         });
@@ -16,6 +16,13 @@ export class DashboardService {
 
   public getUserInfo (user_id) {
     return this.http.get(API_BASE_URL + "users/" + user_id)
+        .map(data => {
+            return data.json();
+        });
+  }
+
+  public removeLoginLocation (data) {
+    return this.http.post(API_BASE_URL + "loginlocations/delete", data)
         .map(data => {
             return data.json();
         });

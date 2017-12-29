@@ -21,7 +21,7 @@ export class LoginService {
   }
 
   public addLocation(data){
-    return this.http.post(API_BASE_URL + "addLocation", data)
+    return this.http.post(API_BASE_URL + "loginlocations/add", data)
     .map(data => {
         return data.json();
     });

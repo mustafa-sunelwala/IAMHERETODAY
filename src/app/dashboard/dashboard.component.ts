@@ -48,4 +48,16 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  public removeLoginLocation(id) {
+    let data = {
+      id: id,
+      user_id: this.user_id
+    }
+    this.dashboardService.removeLoginLocation(data).subscribe(
+      data => {
+        this.userLocations = data;
+      }
+    );
+  }
+
 }

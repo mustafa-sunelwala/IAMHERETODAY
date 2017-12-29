@@ -2,16 +2,13 @@
     <h3>Welcome {{username}}</h3>
     <p class="back"><a routerLink="/login">Back to Login</a></p>
     <div class="select-control">
-      <select class="select">
-          <option value="">Select Location</option>
-          <option *ngFor="let location of locations" value="{{location.id}}">{{location.name}}</option>
-      </select>
+      <input class="select" [(ngModel)]="search" placeholder="Search">
      </div>
 
-     <div class="location" *ngFor="let location of userLocations">
+     <div class="location" *ngFor="let location of userLocations | filter:search">
         <div class="location-tile-1">{{location.location_id.name}}</div>
         <div class="location-tile-2">
-            <img src="assets/img/Delete.png" />
+            <a (click)="removeLoginLocation(location._id)"><img src="assets/img/Delete.png" /></a>
         </div>
      </div>
   </div>

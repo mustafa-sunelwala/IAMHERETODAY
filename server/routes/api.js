@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
-router.use('/', require('./controller/users'))
-router.use('/', require('./controller/locations'))
+router.use('/users', require('./controller/users'))
+router.use('/locations', require('./controller/locations'))
+router.use('/loginlocations', require('./controller/loginlocations'))
 
 module.exports = router;

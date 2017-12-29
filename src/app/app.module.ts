@@ -24,6 +24,8 @@ import { HomeService } from './home/home.service';
 import { LoginService } from './login/login.service';
 import { DashboardService } from './dashboard/dashboard.service';
 
+import { FilterPipe } from './shared/filter.pipe';
+
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -54,7 +56,8 @@ type StoreType = {
     HeaderComponent,
     LocationComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    FilterPipe
   ],
   /**
    * Import Angular's modules.
