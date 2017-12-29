@@ -1,18 +1,27 @@
 var express = require('express');
 var router = express.Router();
-var mongojs = require('mongojs');
-var db = mongojs('mongodb://demouser:demouser@ds135912.mlab.com:35912/cvexample',['locations'])
 
-/*Get all users*/
-/*Get Single user*/
-/*Book Location Post*/
+var db = require('../db');
+var Location = require('../models/location');
+var LoginLocation = require('../models/loginlocation');
+var ObjectId = require('mongoose').Types.ObjectId; 
+
 router.get('/locations',function(req,res,next){
-    db.locations.find(function(err,locations){
+    Location.find((err,locations) => {
         if(err){
         	res.send(err);
         }
         res.json(locations);
    })
+});
+
+router.post('/locations',function(req,res,next){
+    LoginLocation.find({user_id: ObjectId(req.body.user_id) },function(err,locations){
+        if(err){
+        	res.send(err);
+        }
+        res.json(locations);
+    }).populate('location_id');
 });
 
 module.exports = router;

@@ -4,13 +4,13 @@
       <div class="select-control">
           <select class="select" [(ngModel)]="user">
               <option value="">Select User</option>
-              <option *ngFor="let user of users" value="{{user.id}}">{{user.name}}</option>
+              <option *ngFor="let user of users" value="{{user._id}}">{{user.name}}</option>
             </select>   
       </div>
       <div class="select-control">
           <select class="select" [(ngModel)]="location">
             <option value="">Select Location</option>
-            <option *ngFor="let location of locations" value="{{location.id}}">{{location.name}}</option>
+            <option *ngFor="let location of locations" value="{{location._id}}">{{location.name}}</option>
           </select>
       </div>               
       <div class="select-control">

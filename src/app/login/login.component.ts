@@ -2,6 +2,7 @@
  * Angular 2 decorators and services
  */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from './login.service'
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   private location: String = '';
   private user: String = '';
 
-  constructor(private loginService: LoginService){}
+  constructor(private loginService: LoginService, private router: Router){}
 
   public ngOnInit() {
     this.getUsers();
@@ -43,9 +44,11 @@ export class LoginComponent implements OnInit {
       user_id: this.user,
       location_id: this.location
     }
+
     this.loginService.addLocation(postData).subscribe(
       data => {
-        console.log('Successfull Login');
+        window.localStorage.setItem('user_id', postData.user_id + '');
+        this.router.navigate(['/dashboard']);
       }
     );
   }

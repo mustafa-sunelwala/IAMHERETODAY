@@ -1,5 +1,6 @@
 <div class="row login">
-    <h3>Dashboard</h3>
+    <h3>Welcome {{username}}</h3>
+    <p class="back"><a routerLink="/login">Back to Login</a></p>
     <div class="select-control">
       <select class="select">
           <option value="">Select Location</option>
@@ -7,14 +8,8 @@
       </select>
      </div>
 
-     <div class="location">
-        <div class="location-tile-1">Viper</div>
-        <div class="location-tile-2">
-            <img src="assets/img/Delete.png" />
-        </div>
-     </div>
-     <div class="location">
-        <div class="location-tile-1">Dino</div>
+     <div class="location" *ngFor="let location of userLocations">
+        <div class="location-tile-1">{{location.location_id.name}}</div>
         <div class="location-tile-2">
             <img src="assets/img/Delete.png" />
         </div>

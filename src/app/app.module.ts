@@ -22,6 +22,7 @@ import { LoginComponent } from './login';
 
 import { HomeService } from './home/home.service';
 import { LoginService } from './login/login.service';
+import { DashboardService } from './dashboard/dashboard.service';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -32,7 +33,8 @@ const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
   HomeService,
-  LoginService
+  LoginService,
+  DashboardService
 ];
 
 type StoreType = {
