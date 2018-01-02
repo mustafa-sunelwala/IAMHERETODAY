@@ -1,15 +1,28 @@
 <div class="row login">
     <h3>Location</h3>
     <div class="login-form">
+        <p class="error" *ngIf="errorMsg">{{errorMsg}}</p> 
         <div class="select-control">
-            <input type="text" class="select" id="locationName" aria-describedby="locationName" placeholder="Location Name" />
+            <input type="text" class="select" [(ngModel)]="locName" id="locationName" aria-describedby="locationName" placeholder="Location Name" />
         </div>
         
+        
         <div class="select-control">
-            <textarea class="select" id="locationAdd" rows="3" aria-describedby="locationAdd" placeholder="Location Address"></textarea>
-        </div>
-        <div class="select-control">
-            <button type="submit" class="login-btn">Add Location</button>
+            <button type="submit" class="login-btn" (click)="addLocation()">Add Location</button>
         </div>
     </div>
+    <div class="user-table-div">
+                    <table class="user-table">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr *ngFor="let location of locations; let i = index;">
+                            <td>{{i + 1}}</td>
+                            <td>{{location.name}}</td>
+                            <td style="text-align:center;"><a href="javascript:void(0);" (click)="deleteLocation(location._id)"><img src="assets/img/Delete.png" /></a></td>
+                        </tr>
+                    </table>
+                </div>
 </div>

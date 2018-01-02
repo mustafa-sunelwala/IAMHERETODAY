@@ -23,6 +23,7 @@ import { LoginComponent } from './login';
 import { HomeService } from './home/home.service';
 import { LoginService } from './login/login.service';
 import { DashboardService } from './dashboard/dashboard.service';
+import { LocationService } from './admin/location/location.service';
 
 import { FilterPipe } from './shared/filter.pipe';
 
@@ -36,7 +37,8 @@ const APP_PROVIDERS = [
   AppState,
   HomeService,
   LoginService,
-  DashboardService
+  DashboardService,
+  LocationService
 ];
 
 type StoreType = {
