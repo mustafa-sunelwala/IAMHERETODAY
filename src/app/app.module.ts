@@ -19,10 +19,12 @@ import { HeaderComponent } from './header';
 import { DashboardComponent } from './dashboard';
 import { LocationComponent } from 'app/admin/location';
 import { LoginComponent } from './login';
+import { UserComponent } from './admin/user'
 
 import { HomeService } from './home/home.service';
 import { LoginService } from './login/login.service';
 import { DashboardService } from './dashboard/dashboard.service';
+import { UserService } from './admin/user/user.service';
 
 import { FilterPipe } from './shared/filter.pipe';
 
@@ -36,7 +38,8 @@ const APP_PROVIDERS = [
   AppState,
   HomeService,
   LoginService,
-  DashboardService
+  DashboardService,
+  UserService
 ];
 
 type StoreType = {
@@ -57,7 +60,8 @@ type StoreType = {
     LocationComponent,
     LoginComponent,
     DashboardComponent,
-    FilterPipe
+    FilterPipe,
+    UserComponent
   ],
   /**
    * Import Angular's modules.

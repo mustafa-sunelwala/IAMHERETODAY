@@ -4,11 +4,13 @@ import { AboutComponent } from './about';
 import { LoginComponent } from './login';
 import { LocationComponent } from './admin/location';
 import { DashboardComponent } from './dashboard';
+import { UserComponent } from './admin/user'
 
 export const ROUTES: Routes = [
   { path: '',      component: LoginComponent },
   { path: 'home',  component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'location', component: LocationComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'user', component: UserComponent }
 ];

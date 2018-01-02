@@ -1,0 +1,30 @@
+.addCancel{
+    width:40%;
+}
+
+.user-table-div{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.user-table{
+    color: gray;
+    background: transparent;
+    width: 100%;
+}
+
+.user-table tr{
+    border-bottom: 1px solid gray;
+}
+
+.user-table td, .user-table th{
+    background: transparent;
+    color: gray;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+    font-size: 15px;
+}

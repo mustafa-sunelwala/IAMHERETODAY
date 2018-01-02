@@ -24,5 +24,37 @@ router.get('/:id',function(req,res,next){
    })
 });
 
+router.post('/add',function(req,res,next){
+  var user = new User(req.body);
+  user.save((err,user) => {
+        if(err){
+        	res.json({
+            status: '0',
+            error: err
+          });
+        }
+        res.json({
+          status: '1',
+          message: 'User Added Successfully'
+        });
+   })
+});
+
+router.post('/delete',function(req,res,next){
+  User.remove({_id: ObjectId(req.body.id) },function(err,data){
+      if(err){
+        res.json({
+          status: '0',
+          error: err
+        });
+      }
+
+      res.json({
+        status: '1',
+        message: 'User Deleted Successfully'
+      });
+  });
+});
+
 
 module.exports = router;
