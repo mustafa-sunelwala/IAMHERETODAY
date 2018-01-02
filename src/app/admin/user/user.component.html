@@ -1,0 +1,26 @@
+<div class="row login">
+    <h3>User</h3>
+    <div class="login-form">
+        <div class="select-control">
+            <input type="text" class="select" [(ngModel)]="user" placeholder="User Name" />
+        </div>
+        <div class="select-control">
+            <button type="submit" class="login-btn" (click)="addUser()">Add User</button>
+        </div>
+    </div>
+
+    <div class="user-table-div">
+        <table class="user-table">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let user of users; let i = index;">
+                <td>{{i + 1}}</td>
+                <td>{{user.name}}</td>
+                <td style="text-align:center;"><a href="javascript:void(0);" (click)="deleteUser(user._id)"><img src="assets/img/Delete.png" /></a></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -6,6 +6,7 @@
 @import '../app/admin/location/location.component.css';
 @import '../app/login/login.component.css';
 @import '../app/dashboard/dashboard.component.css';
+@import '../app/admin/user/user.component.css';
 
 nav {
   margin-top: 16px;
@@ -23,5 +24,19 @@ nav a {
   border-radius: 4px;
 }
 
+/*-------------------Media Queries--------------------*/
 
+@media (max-width: 500px) {
+  .login{
+    width: 90%;
+  }
+
+  .login-btn{
+    width: 100%;
+  }
+
+  .select{
+    width: 90%;
+  }
+}
 
