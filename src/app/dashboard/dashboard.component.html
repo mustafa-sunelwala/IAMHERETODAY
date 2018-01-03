@@ -5,7 +5,7 @@
       <input class="select" [(ngModel)]="search" placeholder="Search">
      </div>
 
-     <div class="location" *ngFor="let location of userLocations | filter:search">
+     <div class="location" *ngFor="let location of userLocations | filter:search:'location'">
         <div class="location-tile-1">{{location.location_id.name}}</div>
         <div class="location-tile-2">
             <a (click)="removeLoginLocation(location._id)"><img src="assets/img/Delete.png" /></a>

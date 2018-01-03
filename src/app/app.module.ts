@@ -24,11 +24,8 @@ import { UserComponent } from './admin/user'
 import { HomeService } from './home/home.service';
 import { LoginService } from './login/login.service';
 import { DashboardService } from './dashboard/dashboard.service';
-<<<<<<< HEAD
 import { LocationService } from './admin/location/location.service';
-=======
 import { UserService } from './admin/user/user.service';
->>>>>>> 10eef09af1f47f6dbb958a7ac8b053a8bed33279
 
 import { FilterPipe } from './shared/filter.pipe';
 
@@ -43,11 +40,8 @@ const APP_PROVIDERS = [
   HomeService,
   LoginService,
   DashboardService,
-<<<<<<< HEAD
-  LocationService
-=======
+  LocationService,
   UserService
->>>>>>> 10eef09af1f47f6dbb958a7ac8b053a8bed33279
 ];
 
 type StoreType = {
