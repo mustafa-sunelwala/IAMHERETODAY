@@ -37,4 +37,5 @@ img{
 .back a{
 	font-size: 12px;
 	color: gray;
+	float: left;
 }

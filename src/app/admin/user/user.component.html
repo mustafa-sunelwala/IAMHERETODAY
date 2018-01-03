@@ -1,6 +1,10 @@
 <div class="row login">
     <h3>User</h3>
-    <div class="login-form">
+    <div>
+    <p class="back"><a routerLink="/dashboard">Back to dashboard</a> &emsp;
+        <a  routerLink="/location" style="float:right;">Location</a></p>
+    </div>
+    <div class="login-form" style="clear:both;">
         <div class="select-control">
             <input type="text" class="select" [(ngModel)]="user" placeholder="User Name" />
         </div>

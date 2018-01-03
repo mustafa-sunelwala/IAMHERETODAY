@@ -1,5 +1,9 @@
 <div class="row login">
     <h3>Location</h3>
+    <div>
+            <p class="back"><a routerLink="/dashboard">Back to dashboard</a> &emsp;
+                <a  routerLink="/user" style="float:right;">User</a></p>
+    </div>
     <div class="login-form">
         <p class="error" *ngIf="errorMsg">{{errorMsg}}</p> 
         <div class="select-control">
