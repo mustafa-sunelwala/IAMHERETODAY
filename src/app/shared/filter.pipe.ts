@@ -5,10 +5,16 @@ import { Pipe, PipeTransform } from '@angular/core';
     pure: false
 })
 export class FilterPipe implements PipeTransform {
-    transform(items: any[], term): any {
+    transform(items: any[], term, findIn): any {
       
-        return term 
+        if(findIn == 'location'){
+            return term 
             ? items.filter(item => item.location_id.name.indexOf(term) !== -1)
             : items;
+        }else{
+            return term 
+            ? items.filter(item => item.name.indexOf(term) !== -1)
+            : items;
+        }
     }
 }

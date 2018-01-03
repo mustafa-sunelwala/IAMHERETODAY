@@ -28,3 +28,29 @@
     padding: 5px;
     font-size: 15px;
 }
+
+.user-form-tile{
+    float: left;
+    width: 45%;
+    margin: 10px;
+}
+
+.user-input{
+    width: 99%;
+    border-radius: 5px;
+}
+
+.user-btn{
+    width: 50%;
+}
+
+.search-user{
+    margin-top: 20px;
+    width: 50%;
+    float: right;
+}
+
+.search-input{
+    width: 60%;
+    border-radius: 5px;
+}

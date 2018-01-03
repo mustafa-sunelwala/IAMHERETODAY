@@ -1,4 +1,5 @@
 <div class="row login">
+<<<<<<< HEAD
     <h3>User</h3>
     <div>
     <p class="back"><a routerLink="/dashboard">Back to dashboard</a> &emsp;
@@ -7,10 +8,20 @@
     <div class="login-form" style="clear:both;">
         <div class="select-control">
             <input type="text" class="select" [(ngModel)]="user" placeholder="User Name" />
+=======
+    <h3>Users</h3>
+    <div class="login-form">
+        <div class="user-form-tile">
+            <input type="text" class="select user-input" [(ngModel)]="user" placeholder="User Name" />
+>>>>>>> 120ac6313b8778afb6f79668d78203601d6042db
         </div>
-        <div class="select-control">
-            <button type="submit" class="login-btn" (click)="addUser()">Add User</button>
+        <div class="user-form-tile">
+            <button type="submit" class="login-btn user-btn" (click)="addUser()">Add User</button>
         </div>
+    </div>
+
+    <div class="login-form">
+        <input type="text" class="select search-input" [(ngModel)]="search" placeholder="Search User">
     </div>
 
     <div class="user-table-div">
@@ -20,8 +31,8 @@
                 <th>Name</th>
                 <th>Action</th>
             </tr>
-            <tr *ngFor="let user of users; let i = index;">
-                <td>{{i + 1}}</td>
+            <tr *ngFor="let user of users | filter:search">
+                <td>-</td>
                 <td>{{user.name}}</td>
                 <td style="text-align:center;"><a href="javascript:void(0);" (click)="deleteUser(user._id)"><img src="assets/img/Delete.png" /></a></td>
             </tr>
