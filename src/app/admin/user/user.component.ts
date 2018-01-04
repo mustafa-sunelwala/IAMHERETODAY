@@ -10,6 +10,7 @@ export class UserComponent implements OnInit {
 
   private users: Array<any> = [];
   private user: String = '';
+  private errorMsg: String = '';
 
   constructor(private loginService: LoginService, private userService: UserService) {}
 
@@ -27,17 +28,21 @@ export class UserComponent implements OnInit {
   }
 
   public addUser() {
-    let data = {
-      name: this.user
-    };
-    this.userService.addUser(data).subscribe(
-      data => {
-        if(data.status == '1'){
-          this.getUsers();
-          this.user = '';
+    if(this.user == ''){
+      this.errorMsg = "Please fill required fields.";
+    }else{
+      let data = {
+        name: this.user
+      };
+      this.userService.addUser(data).subscribe(
+        data => {
+          if(data.status == '1'){
+            this.getUsers();
+            this.user = '';
+          }
         }
-      }
-    );
+      );
+    }
   }
 
   public deleteUser(user_id) {
