@@ -25,8 +25,8 @@
                 <th>Name</th>
                 <th>Action</th>
             </tr>
-            <tr *ngFor="let user of users | filter:search">
-                <td>-</td>
+            <tr *ngFor="let user of users | filter:search; let i = index;">
+                <td>{{i + 1}}</td>
                 <td>{{user.name}}</td>
                 <td style="text-align:center;"><a href="javascript:void(0);" (click)="deleteUser(user._id)"><img src="assets/img/Delete.png" /></a></td>
             </tr>
