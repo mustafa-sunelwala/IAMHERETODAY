@@ -16,8 +16,9 @@ export class DashboardComponent implements OnInit {
   private username: String = '';
   private user_id: String = '';
 
-  constructor(private loginService: LoginService, private dashboardService: DashboardService){}
+  constructor(public loginService: LoginService, public dashboardService: DashboardService){}
   public ngOnInit() {
+    console.log('Dashboard Component');
     this.user_id = window.localStorage.getItem('user_id');
     this.getLocations();
     this.getUserLocations();
