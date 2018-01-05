@@ -9,10 +9,10 @@ import { UserService } from './user.service';
 export class UserComponent implements OnInit {
 
   private users: Array<any> = [];
-  private user: String = '';
-  private errorMsg: String = '';
+  public user: String = '';
+  public errorMsg: String = '';
 
-  constructor(private loginService: LoginService, private userService: UserService) {}
+  constructor(public loginService: LoginService, public userService: UserService) {}
 
   public ngOnInit() {
     console.log('User Component');
