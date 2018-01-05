@@ -13,14 +13,15 @@ export class LoginComponent implements OnInit {
 
   private locations: Array<any> = [];
   private users: Array<any> = [];
-  private location: String = '';
-  private user: String = '';
+  public location: String = '';
+  public user: String = '';
   private disableUserDropdown: Boolean = false;
-  private errorMsg: String = '';
+  public errorMsg: String = '';
 
-  constructor(private loginService: LoginService, private router: Router){}
+  constructor(public loginService: LoginService, private router: Router){}
 
   public ngOnInit() {
+    console.log('Login Component');
     this.getUsers();
     this.getLocations();
 
