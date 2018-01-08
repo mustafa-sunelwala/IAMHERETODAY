@@ -61,7 +61,11 @@ export class LoginComponent implements OnInit {
       this.loginService.addLocation(postData).subscribe(
         data => {
           window.localStorage.setItem('user_id', postData.user_id + '');
-          this.router.navigate(['/dashboard']);
+          if(data.status == '0'){
+            alert(data.message);
+          }else{
+            this.router.navigate(['/dashboard']);
+          }
         }
       );
     }
