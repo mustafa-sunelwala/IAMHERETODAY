@@ -1,15 +1,15 @@
 <div class="row login">
     <h3>Login</h3>
-    <div class="login-form">
+    <div class="login-form" *ngIf="users.length && locations.length">
       <p class="error" *ngIf="errorMsg">{{errorMsg}}</p>  
       <div class="select-control">
-          <select class="select" [(ngModel)]="user" [disabled]="disableUserDropdown">
+          <select class="select" id="user" [(ngModel)]="user" [disabled]="disableUserDropdown">
               <option value="">Select User</option>
               <option *ngFor="let user of users" value="{{user._id}}">{{user.name}}</option>
             </select>   
       </div>
       <div class="select-control">
-          <select class="select" [(ngModel)]="location">
+          <select class="select" id="location" [(ngModel)]="location">
             <option value="">Select Location</option>
             <option *ngFor="let location of locations" value="{{location._id}}">{{location.name}}</option>
           </select>

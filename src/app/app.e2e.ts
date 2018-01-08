@@ -13,22 +13,30 @@ describe('App', () => {
     expect(subject).toEqual(result);
   });
 
-  it('should have header', async () => {
-    let subject = await element(by.css('h1')).isPresent();
-    let result  = true;
-    expect(subject).toEqual(result);
-  });
+  it('should test login', async () => {
+    await browser.sleep(2000);
+    let locpresent = browser.wait(function() {
+        return element(by.css("#location")).isPresent()
+    });
+    if(locpresent){
+        element(by.css("#location")).$('[value="5a4caa59779ce33268fe395b"]').click();
+    }
 
-  it('should have <home>', async () => {
-    let subject = await element(by.css('app home')).isPresent();
-    let result  = true;
-    expect(subject).toEqual(result);
-  });
+    let userPresent = browser.wait(function() {
+        return element(by.css("#user")).isPresent()
+    });
+    if(userPresent){
+        element(by.css("#user")).$('[value="5a4b48e9cb961b0b7447fb23"]').click();
+    }
 
-  it('should have buttons', async () => {
-    let subject = await element(by.css('button')).getText();
-    let result  = 'Submit Value';
-    expect(subject).toEqual(result);
+    await browser.sleep(1000);
+    let buttonPresent = browser.wait(function() {
+        return element(by.css("button")).isPresent()
+    });
+    if(buttonPresent){
+        element(by.css("button")).click();
+    }
+    await browser.sleep(2000);
   });
 
 });
