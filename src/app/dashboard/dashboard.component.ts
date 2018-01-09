@@ -2,6 +2,7 @@
  * Angular 2 decorators and services
  */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
 import { DashboardService } from './dashboard.service';
 
@@ -16,13 +17,17 @@ export class DashboardComponent implements OnInit {
   private username: String = '';
   private user_id: String = '';
 
-  constructor(public loginService: LoginService, public dashboardService: DashboardService){}
+  constructor(public loginService: LoginService, public dashboardService: DashboardService, private router: Router){}
   public ngOnInit() {
     console.log('Dashboard Component');
     this.user_id = window.localStorage.getItem('user_id');
-    this.getLocations();
-    this.getUserLocations();
-    this.getUserInfo();
+    if(this.user_id){
+      this.getLocations();
+      this.getUserLocations();
+      this.getUserInfo();
+    }else{
+      this.router.navigate(['/login']);
+    }
   }
 
   public getLocations() {
