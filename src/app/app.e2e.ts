@@ -19,7 +19,7 @@ describe('App', () => {
         return element(by.css("#location")).isPresent()
     });
     if(locpresent){
-        element(by.css("#location")).$('[value="5a4caa59779ce33268fe395b"]').click();
+        element(by.css("#location")).$('[value="5a5467e6b305fe2b2c54a353"]').click();
     }
 
     let userPresent = browser.wait(function() {
