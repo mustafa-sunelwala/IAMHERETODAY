@@ -29,7 +29,7 @@ describe('App', () => {
         element(by.css("#user")).$('[value="5a4b48e9cb961b0b7447fb23"]').click();
     }
 
-    await browser.sleep(1000);
+    await browser.sleep(2000);
     let buttonPresent = browser.wait(function() {
         return element(by.css("button")).isPresent()
     });
@@ -37,6 +37,11 @@ describe('App', () => {
         element(by.css("button")).click();
     }
     await browser.sleep(2000);
+
+    element(by.css("#search")).sendKeys('italia');
+
+    await browser.sleep(2000);
+
   });
 
 });

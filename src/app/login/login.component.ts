@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   constructor(public loginService: LoginService, private router: Router){}
 
   public ngOnInit() {
-    console.log('Login Component');
     this.getUsers();
     this.getLocations();
 
@@ -33,6 +32,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  // This method is used to get all users from backend server.
   public getUsers() {
     this.loginService.getUsers().subscribe(
       data => {
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  // This method is used to get all locations from backend server.
   public getLocations() {
     this.loginService.getLocations().subscribe(
       data => {
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
         user_id: this.user,
         location_id: this.location
       }
-  
+  // This method is used to sign-in for a particular location
       this.loginService.addLocation(postData).subscribe(
         data => {
           window.localStorage.setItem('user_id', postData.user_id + '');

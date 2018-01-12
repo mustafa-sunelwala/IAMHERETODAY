@@ -2,6 +2,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { inject, async, TestBed, ComponentFixture } from '@angular/core/testing';
 import { BaseRequestOptions, ConnectionBackend, Http, ResponseOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { Observable } from 'rxjs';
 import { DashboardComponent } from './dashboard.component';
@@ -15,6 +16,9 @@ describe(`Dashboard Component`, () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes([]),
+      ],
       declarations: [ DashboardComponent, FilterPipe ],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [

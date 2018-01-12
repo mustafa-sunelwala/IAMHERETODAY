@@ -7,7 +7,7 @@
     </div>
     <p class="back"></p>
     <div class="select-control">
-      <input class="select" [(ngModel)]="search" placeholder="Search">
+      <input class="select" id="search" [(ngModel)]="search" placeholder="Search">
      </div>
 
      <div class="location" *ngFor="let location of userLocations | filter:search:'location'">

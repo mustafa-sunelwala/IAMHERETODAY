@@ -46,15 +46,17 @@ export class UserComponent implements OnInit {
   }
 
   public deleteUser(user_id) {
-    let data = {
-      id: user_id
-    };
-    this.userService.deleteUser(data).subscribe(
-      data => {
-        if(data.status == '1'){
-          this.getUsers();
+    if(confirm('Are you sure to delete this User?')){
+      let data = {
+        id: user_id
+      };
+      this.userService.deleteUser(data).subscribe(
+        data => {
+          if(data.status == '1'){
+            this.getUsers();
+          }
         }
-      }
-    );
+      );
+    }
   }
 }

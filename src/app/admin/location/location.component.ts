@@ -50,15 +50,17 @@ export class LocationComponent implements OnInit {
   }
 
   public deleteLocation(user_id) {
-    let data = {
-      id: user_id
-    };
-    this.locationService.deleteLocation(data).subscribe(
-      data => {
-        if(data.status == '1'){
-          this.getLocations();
+    if(confirm('Are you sure to delete this Location?')){
+      let data = {
+        id: user_id
+      };
+      this.locationService.deleteLocation(data).subscribe(
+        data => {
+          if(data.status == '1'){
+            this.getLocations();
+          }
         }
-      }
-    );
+      );
+    }
   }
 }

@@ -47,14 +47,6 @@ describe(`Login Component`, () => {
     expect(comp).toBeDefined();
   });
 
-  it('should log ngOnInit', () => {
-    spyOn(console, 'log');
-    expect(console.log).not.toHaveBeenCalled();
-
-    comp.ngOnInit();
-    expect(console.log).toHaveBeenCalled();
-  });
-
   it('test getUser Method', () => {
     spyOn(comp.loginService, "getUsers").and.returnValue(Observable.create(observer => {
         if (this.error) {
