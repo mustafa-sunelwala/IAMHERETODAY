@@ -5,9 +5,30 @@ var db = require('../db');
 var Location = require('../models/location');
 var LoginLocation = require('../models/loginlocation');
 var ObjectId = require('mongoose').Types.ObjectId; 
+var cache = require('memory-cache');
 
-router.get('/',function(req,res,next){
-    Location.find((err,locations) => {
+let memCache = new cache.Cache();
+let cacheMiddleware = (duration) => {
+    return (req, res, next) => {
+        let key =  '__express__' + req.originalUrl || req.url
+        let cacheContent = memCache.get(key);
+        if(cacheContent){
+            res.send( cacheContent );
+            return
+        }else{
+            res.sendResponse = res.send
+            res.send = (body) => {
+                memCache.put(key,body,duration*1000);
+                res.sendResponse(body)
+            }
+            next()
+        }
+    }
+}
+
+router.get('/',cacheMiddleware(30),function(req,res,next){
+  console.log('called!!');  
+  Location.find((err,locations) => {
         if(err){
         	res.send(err);
         }
@@ -47,4 +68,25 @@ router.post('/delete',function(req,res,next){
   });
 });
 
+
+router.get('/getall/:page?',function(req,res){
+  var perPage = 5
+  var page = req.params.page || 1
+
+  Location
+      .find({})
+      .skip((perPage * page) - perPage)
+      .limit(perPage)
+      .exec(function(err, products) {
+        Location.count().exec(function(err, count) {
+              if (err) return next(err)
+              res.json( {
+                  products: products,
+                  current: page,
+                  totalItems: count,
+                  pages: Math.ceil(count / perPage)
+              })
+          })
+      })
+});
 module.exports = router;

@@ -1,0 +1,40 @@
+<div class="info-table">
+    
+<table>
+  <thead>
+      <th>Name</th>
+      <th>_id</th>
+  </thead>
+  <tbody *ngIf="loading">
+      <tr><td>Loading... <app-loader [loading]="loading"></app-loader></td></tr>
+      
+  </tbody>
+  <tbody *ngIf="!loading">
+      <tr *ngFor="let d of data">
+          <td>{{d.name}}</td>
+          <td>{{d._id}}</td>
+      </tr>
+  </tbody>
+</table>
+<ul class="nav nav-pills">
+  <li class="nav-item" *ngFor="let p of pages let i=index">
+    <a class="nav-link active" 
+    (click)="setPage(i+1,$event)"
+    [ngClass]="{'active':i==page}">{{i+1}}</a>
+  </li>  
+</ul>
+<div>
+  Form
+  
+			<form [formGroup]="signUpForm" class="form" novalidate>
+				
+					<input name="name"  formControlName="name" placeholder="User name" type="name">
+				
+					
+				
+			</form>
+		
+			<button  (click)="signUp()">Sign up</button>
+	
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,7 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { HeaderComponent } from './header';
 import { DashboardComponent } from './dashboard';
+
 import { LocationComponent } from 'app/admin/location';
 import { LoginComponent } from './login';
 import { UserComponent } from './admin/user'
@@ -24,6 +25,7 @@ import { UserComponent } from './admin/user'
 import { HomeService } from './home/home.service';
 import { LoginService } from './login/login.service';
 import { DashboardService } from './dashboard/dashboard.service';
+import { PaginationService } from './pagination/pagination.service';
 import { LocationService } from './admin/location/location.service';
 import { UserService } from './admin/user/user.service';
 
@@ -31,7 +33,16 @@ import { FilterPipe } from './shared/filter.pipe';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
-
+import { PaginationComponent } from './pagination/pagination.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { MichaelComponent } from './michael/michael.component'; 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TableComponent } from './table/table.component';
+import { TableRowComponent } from './table-row/table-row.component';
+import { LoaderComponent } from './shared/loader/loader.component';
+//import { ParentComponentComponent } from './parent-component/parent-component.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -41,13 +52,14 @@ const APP_PROVIDERS = [
   LoginService,
   DashboardService,
   LocationService,
-  UserService
+  UserService,
+  PaginationService
 ];
 
 type StoreType = {
   state: InternalStateType,
   restoreInputValues: () => void,
-  disposeOldHosts: () => void
+  disposeOldHosts: () => void 
 };
 
 /**
@@ -63,7 +75,12 @@ type StoreType = {
     LoginComponent,
     DashboardComponent,
     FilterPipe,
-    UserComponent
+    UserComponent,
+    PaginationComponent,
+    MichaelComponent,
+    TableComponent,
+    TableRowComponent,
+    LoaderComponent
   ],
   /**
    * Import Angular's modules.
@@ -73,11 +90,15 @@ type StoreType = {
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule ,
+    NgxPaginationModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
     }),
-
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
     /**
      * This section will import the `DevModuleModule` only in certain build types.
      * When the module is not imported it will get tree shaked.

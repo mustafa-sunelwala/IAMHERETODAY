@@ -1,0 +1,13 @@
+<ul class="meal-list">
+  {{current}}
+  <li *ngFor="let d of data | paginate: { 
+        id: 'foo',
+        itemsPerPage: 5, 
+        currentPage: current,
+        totalItems: totalItems }">
+    {{d.name}}
+  </li>
+</ul>
+<div class="has-text-centered">
+  <pagination-controls id="foo"  (pageChange)="pageChanged($event)"></pagination-controls>
+</div>
